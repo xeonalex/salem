@@ -42,7 +42,7 @@ gulp.task('pug-templates', function() {
 gulp.task('sass-dev', function() {
   return gulp.src('src/sass/**/*.scss')
     .pipe(plumber())
-    // .pipe(sourcemaps.init())
+    .pipe(sourcemaps.init())
     .pipe(sass({
       style: 'compressed',
       errLogToConsole: true,
@@ -53,13 +53,12 @@ gulp.task('sass-dev', function() {
       browsers: ['last 15 versions'],
       cascade: true
      }))
-    .pipe(shorthand())
     .pipe(cssnano({
         discardComments: {
           removeAll: true
         }
     }))
-    // .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('build/css/'))
     .pipe(browserSync.stream());
 });
@@ -68,6 +67,7 @@ gulp.task('uncss', function() {
     .pipe(uncss({
       html: ['build/*.html']
     }))
+    .pipe(shorthand())
     .pipe(rename('main.css'))
     .pipe(gulp.dest('build/css/'));
 });
