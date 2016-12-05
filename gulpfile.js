@@ -13,7 +13,17 @@ var gulp = require('gulp'),
     uncss = require('gulp-uncss'), // удаление не используемых стилей
     rename = require('gulp-rename'),
     watch = require('gulp-watch'),
-    changed = require('gulp-changed');
+    changed = require('gulp-changed'),
+    critical = require('critical'); // сам выбирает критический css
+
+// критический css для конкретной страницы
+//
+// ТРЕБА ДОПИСАТИ
+gulp.task('critical', function () {
+    return gulp.src('build/*.html')
+        .pipe(critical({base: 'build/', inline: true, minify: true, css: ['build/css/style.css']}))
+        .pipe(gulp.dest('build'));
+});
 
 // удаление не используемых стилей  - вызывается после сборки проекта
 

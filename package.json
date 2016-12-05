@@ -19,11 +19,11 @@
     "gulp-rename": "latest",
     "gulp-shorthand": "latest",
     "gulp-uncss": "latest",
-    "gulp-watch": "latest",
-     "gulp-changed": "latest"
+    "gulp-watch": "latest"
   },
   "dependencies": {
     "browser-sync": "latest",
+    "critical": "^0.8.0",
     "gulp": "latest",
     "gulp-autoprefixer": "latest",
     "gulp-concat": "latest",

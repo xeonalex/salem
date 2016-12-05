@@ -1,2 +1,11 @@
 header.header-landing
-	div.container-short
+	.container-short
+		.header-line
+			a.logo(href='/') | SALEM
+			.landing-menu
+				- var menu_items = ['Our Specialty','Our Team','How We Do It','Works','Brands & Clients','Blog','Contact'];
+				ul.menu-list
+					each val in menu_items
+						li.menu-list
+							a.menu-list-a(href='#') #{val}
+
